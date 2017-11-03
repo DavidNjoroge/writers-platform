@@ -19,6 +19,7 @@ class User(UserMixin,db.Model):
     # bio=db.Column(db.String(255))
     pass_secure=db.Column(db.String(255))
     article=db.relationship('Article',backref='user',lazy="dynamic")
+    comment=db.relationship('Comment',backref='user',lazy="dynamic")
 
 
     @property
@@ -53,3 +54,19 @@ class Article(db.Model):
         db.session.commit()
     def __repr__(self):
         return f'User {self.title}'
+
+class Comment(db.Model):
+    __tablename__='comments'
+
+    id=db.Column(db.Integer,primary_key=True)
+    body=db.Column(db.String(255))
+    article_id=db.Column(db.Integer)
+    user_id=db.Column(db.Integer,db.ForeignKey('users.id'))
+
+    def save_comment(self):
+        db.session.add(self)
+        db.session.commit()
+
+
+    def __repr__(self):
+        return f'User {self.body}'

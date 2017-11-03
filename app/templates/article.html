@@ -6,7 +6,11 @@
   <p>{{article.body}}</p>
 </div>
 <div class="container">
-  <a class="btn btn-primary" href="/comment/{{article.id}}">add comment</a>
+  <a class="btn btn-primary" href="/comment/{{article.id}}">add comment</a> {% for comment in comments %}
+  <div class="">
+    <p>{{comment.body}}</p>
+    <p>{{comment.user.username}} <a class="btn" href="#">delete</a></p>
+  </div>
+  {% endfor %}
 </div>
-
 {% endblock %}
