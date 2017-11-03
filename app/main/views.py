@@ -11,8 +11,8 @@ def index():
     """
     view function for the landing page
     """
-
-    return render_template('index.html')
+    articles=Article.query.all()
+    return render_template('index.html',articles=articles)
 @main.route('/new-article',methods = ['GET', 'POST'])
 def new_article():
     '''
@@ -27,3 +27,14 @@ def new_article():
         return render_template('index.html')
 
     return render_template('new-article.html',form=form)
+
+
+@main.route('/article/<int:id>')
+def article(id):
+    '''
+    view function for an article
+    '''
+    article=Article.query.filter_by(id=id).first()
+    return render_template('article.html',article=article)
+
+@main.route('/comment/<int:id>',methods=['GET','POST'])

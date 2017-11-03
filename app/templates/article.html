@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container">
+  <p>asdfgvhbn</p>
+  <h1>{{article.title}}</h1>
+  <p>{{article.body}}</p>
+</div>
+<div class="container">
+  <a class="btn btn-primary" href="/comment/{{article.id}}">add comment</a>
+</div>
+
+{% endblock %}

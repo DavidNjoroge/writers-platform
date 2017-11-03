@@ -1,11 +1,19 @@
 {% extends 'base.html' %} {% block content %}
 <div class="container">
   <a href="/new-article" class="btn btn-primary">new article </a>
-  <div class="article">
+  <!-- <div class="article">
     <h3>basic intro to python</h3>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
       dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     <p><strong>comments:3</strong></p>
+  </div> -->
+  {% for article in articles %}
+  <div class="article">
+    <p>sadfgh</p>
+    <h3> <a href="/article/{{article.id}}">{{article.title}}</a> </h3>
+    <p>{{article.body}}</p>
+    <p><strong>comments:3</strong></p>
   </div>
+  {% endfor %}
 </div>
 {% endblock %}
