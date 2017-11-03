@@ -2,7 +2,7 @@
 
 ## Description
 
-this website is open to everyone,writers and readers. If you are a writer or want to start writing this website is for you, just create an account and start writing its that easy, all blog posts are available to everyone so if you want to read some articles just browse and read. you can also comment on a post.
+this is a website which lets me post articles which are open for everyone to see, you can add a comment if you register into the website and you get subscibed where you get emails everytime a blog is posted
 
 ## Setup/Installation Requirements
 
