@@ -18,6 +18,8 @@ class User(UserMixin,db.Model):
     email=db.Column(db.String(255))
     # bio=db.Column(db.String(255))
     pass_secure=db.Column(db.String(255))
+    article=db.relationship('Article',backref='user',lazy="dynamic")
+
 
     @property
     def password(self):
@@ -37,3 +39,11 @@ class User(UserMixin,db.Model):
     def __repr__(self):
         # return str(self.username)
         return f'User {self.username}'
+
+class Article(db.Model):
+    __tablename__='articles'
+
+    id =db.Column(db.Integer,primary_key=True)
+    title=db.Column(db.String(255))
+    body=db.Column(db.String(255))
+    user_id=db.Column(db.Integer,db.ForeignKey('users.id'))
