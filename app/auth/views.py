@@ -15,7 +15,7 @@ def login():
             login_user(user,login_form.remember.data)
             return redirect(request.args.get('next') or url_for('main.index'))
         flash('Invalid username or password')
-    title='watchlist login'
+    title='writers_platform login'
     return render_template('auth/login.html',login_form=login_form,title=title)
 
 @auth.route('/register',methods=['GET','POST'])
@@ -26,7 +26,7 @@ def register():
         user.save_user()
         return redirect(url_for('auth.login'))
     title="New Account"
-    return render_template('auth/register.html')
+    return render_template('auth/register.html',form=form)
 
 @auth.route('/logout')
 @login_required
