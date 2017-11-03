@@ -47,3 +47,9 @@ class Article(db.Model):
     title=db.Column(db.String(255))
     body=db.Column(db.String(255))
     user_id=db.Column(db.Integer,db.ForeignKey('users.id'))
+
+    def save_article(self):
+        db.session.add(self)
+        db.session.commit()
+    def __repr__(self):
+        return f'User {self.title}'
