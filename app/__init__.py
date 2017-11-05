@@ -4,6 +4,8 @@ from flask_bootstrap import Bootstrap
 from config import config_options
 from flask_login import LoginManager
 from flask_admin import Admin
+from flask_admin.contrib.sqla import ModelView
+
 
 
 admin=Admin()
@@ -12,6 +14,7 @@ bootstrap=Bootstrap()
 login_manager=LoginManager()
 login_manager.session_protection='strong'
 login_manager.login_view='auth.login'
+admin.add_view(ModelView(User, db.session))
 
 
 def create_app(config_name):
