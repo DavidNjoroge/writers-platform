@@ -1,6 +1,6 @@
 from flask import abort,request,redirect,url_for,render_template
 from . import auth
-from ..models import User
+from ..models import User,Role
 from .. import db
 from flask_login import login_user,logout_user,login_required
 from .forms import RegistrationForm,LoginForm
@@ -22,7 +22,8 @@ def login():
 def register():
     form=RegistrationForm()
     if form.validate_on_submit():
-        user=User(email=form.email.data,username=form.username.data,password=form.password.data)
+        role_ins=Role.query.get(int(form.role.data))
+        user=User(email=form.email.data,username=form.username.data,password=form.password.data,role=role_ins)
         user.save_user()
         return redirect(url_for('auth.login'))
     title="New Account"

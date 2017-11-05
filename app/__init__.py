@@ -14,6 +14,9 @@ bootstrap=Bootstrap()
 login_manager=LoginManager()
 login_manager.session_protection='strong'
 login_manager.login_view='auth.login'
+# user_datastore = SQLAlchemyUserDatastore(db, User, Role)
+# security = Security(app, user_datastore)
+
 
 
 def create_app(config_name):
