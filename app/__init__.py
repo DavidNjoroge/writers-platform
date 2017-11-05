@@ -14,7 +14,6 @@ bootstrap=Bootstrap()
 login_manager=LoginManager()
 login_manager.session_protection='strong'
 login_manager.login_view='auth.login'
-admin.add_view(ModelView(User, db.session))
 
 
 def create_app(config_name):
@@ -36,6 +35,11 @@ def create_app(config_name):
 
     from .auth import auth as auth_blueprint
     app.register_blueprint(auth_blueprint,url_prefix='/authenticate')
+
+    from .admin import admin_view as admin_blueprint
+    app.register_blueprint(admin_blueprint,url_prefix='/admin')
+
+
 
 
     return app
