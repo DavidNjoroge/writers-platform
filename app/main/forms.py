@@ -6,7 +6,6 @@ class NewArticle(FlaskForm):
     title=StringField('Title',validators=[Required()])
     body=TextAreaField('body',validators=[Required()])
     submit=SubmitField('Submit')
-class NewComment(FlaskForm):
+class NewComments(FlaskForm):
     body=TextAreaField('body',validators=[Required()])
     submit=SubmitField('Submit')
-    

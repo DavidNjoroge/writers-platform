@@ -2,7 +2,7 @@ from flask import render_template,request,redirect,url_for,abort
 from . import main
 from ..models import User,Article,Comment
 from .. import db
-from .forms import NewArticle,NewComment
+from .forms import NewArticle,NewComments
 from flask_login import login_required,login_user,current_user
 
 
@@ -49,8 +49,8 @@ def comment(id):
     '''
     view function to write a comment
     '''
-    form=NewComment()
-    if form.validate_on_submit:
+    form=NewComments()
+    if form.validate_on_submit():
         body=form.body.data
 
         new_comment=Comment(body=body,user=current_user,article_id=id)
