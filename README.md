@@ -7,6 +7,8 @@ this is a website which lets me post articles which are open for everyone to see
 ## Setup/Installation Requirements
 
 * follow the link and enjoy
+* as an admin you can delete posts and comments follow the link https://tutorials-platform.herokuapp.com/admin
+
 
 ## Specifications for the BDD
 * the app should have writers who log in
