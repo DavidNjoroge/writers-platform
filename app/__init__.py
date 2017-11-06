@@ -5,9 +5,10 @@ from config import config_options
 from flask_login import LoginManager
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
+from flask_mail import Mail
 
 
-
+mail=Mail()
 admin=Admin()
 db=SQLAlchemy()
 bootstrap=Bootstrap()
@@ -30,7 +31,7 @@ def create_app(config_name):
     db.init_app(app)
     login_manager.init_app(app)
     admin.init_app(app)
-
+    mail.init_app(app)
 
     #registering the blueprints
     from .main import main as main_blueprint

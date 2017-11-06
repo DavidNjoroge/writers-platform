@@ -1,0 +1,3 @@
+Hello {{user.username}}
+Welcome to tutorials platform
+We have just seen you have signed up for our application and want to welcome you to the family. Please enjoy the tutorials posted and feel free to add comments.

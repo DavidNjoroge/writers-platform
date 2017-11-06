@@ -4,6 +4,7 @@ from ..models import User,Role
 from .. import db
 from flask_login import login_user,logout_user,login_required
 from .forms import RegistrationForm,LoginForm
+from ..email import mail_message
 
 
 @auth.route('/login',methods=['GET','POST'])
@@ -26,6 +27,8 @@ def register():
         role_ins=Role.query.get(int(form.role.data))
         user=User(email=form.email.data,username=form.username.data,password=form.password.data,role=role_ins)
         user.save_user()
+        mail_message("Welcome to tutorial platform","email/welcome_user",user.email,user=user)
+
         return redirect(url_for('auth.login'))
     title="New Account"
     return render_template('auth/register.html',form=form)
